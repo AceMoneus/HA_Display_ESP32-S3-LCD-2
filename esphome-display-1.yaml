@@ -77,7 +77,7 @@ touchscreen:
       - lambda: |-
           ESP_LOGI("touch", "Touch detected at (%d, %d)", touch.x, touch.y);
           
-          // Knapp: x=60-260, y=120-170 (landscape)
+          // Knapp: x=60-260, y=120-170 ( landscape )
           if (touch.x >= 60 && touch.x <= 260 && touch.y >= 120 && touch.y <= 170) {
             ESP_LOGI("touch", "Car heater button pressed!");
             id(ha_car_heater).toggle();
