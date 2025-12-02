@@ -46,28 +46,28 @@ time:
 
 
 #######################################################
-# Konfiguration för Waveshare ESP32-S3-LCD-2
-# Baserad på:
+# Configuration for Waveshare ESP32-S3-LCD-2
+# Based on:
 # ESP32-S3 (LX7, 240MHz)
-# Konfigureras som Arduino/esp32-s3-devkitc-1
+# Configure as Arduino/esp32-s3-devkitc-1
 # 
 # Touch: cst816
 # https://files.waveshare.com/upload/5/51/CST816S_Datasheet_EN.pdf
 #
-# Display: st7789T3 (ili9xxx/st7789v enda som förefaller fungera)
+# Display: st7789T3 (ili9xxx/st7789v the only one that seems to work)
 # https://files.waveshare.com/wiki/2.8inch-Capacitive-Touch-LCD/ST7789T3_SPEC_V1.0.pdf
 
-# SPI-konfiguration
+# SPI-configuration
 spi:
   clk_pin: GPIO39  # SCK
   mosi_pin: GPIO38 # MOSI/SDA
 
-# I2C för touch
+# I2C for touch
 i2c:
   sda: GPIO17  # Istället för GPIO6
   scl: GPIO18  # Istället för GPIO5
 
-# Touch-controller
+# Touch control
 touchscreen:
   - platform: cst816
     id: my_touchscreen
@@ -83,7 +83,7 @@ touchscreen:
             id(ha_car_heater).toggle();
           }
 
-# Bakgrundsbelysning
+# Backlight
 output:
   - platform: ledc
     pin: GPIO1
@@ -94,7 +94,7 @@ light:
     name: "Display Backlight"
     restore_mode: ALWAYS_ON
 
-# Olika fonter/storlekar
+# Fonts
 font:
   - file: "gfonts://Roboto"
     id: font_title
@@ -106,7 +106,7 @@ font:
     id: font_large
     size: 24
 
-# Displaykonfiguration
+# Display config
 display:
   - platform: ili9xxx
     model: st7789v
@@ -119,10 +119,10 @@ display:
     pages:
       - id: main_page
         lambda: |-
-          // Landscape: 320 bred x 240 hög
+          // Landscape: W 320 x H 240
           it.print(160, 10, id(font_title), Color(255, 255, 255), TextAlign::CENTER, "Bil & Temperatur");
           
-          // Utomhustemperatur - vänster sida
+          // Outside temp - left side
           it.rectangle(10, 40, 140, 60);
           it.print(20, 50, id(font_medium), Color(0, 255, 255), TextAlign::LEFT, "Ute:");
           if (id(ha_outside_temperature).has_state()) {
@@ -131,7 +131,7 @@ display:
             it.print(20, 75, id(font_medium), Color(255, 0, 0), "N/A");
           }
           
-          // Inomhustemperatur - höger sida  
+          // Inside temp - right side
           it.rectangle(170, 40, 140, 60);
           it.print(180, 50, id(font_medium), Color(255, 165, 0), TextAlign::LEFT, "Inne:");
           if (id(ha_inside_temperature).has_state()) {
@@ -140,24 +140,24 @@ display:
             it.print(180, 75, id(font_medium), Color(255, 0, 0), "N/A");
           }
           
-          // Knapp för kupévärmare - centrerad längst ner
+          // Button for car heater - centered at bottom
           if (id(ha_car_heater).state) {
-            it.filled_rectangle(60, 120, 200, 50, Color(255, 0, 0));  // Röd när PÅ
+            it.filled_rectangle(60, 120, 200, 50, Color(255, 0, 0));  // Red when ON
             it.print(160, 135, id(font_medium), Color(255, 255, 255), TextAlign::CENTER, "Varmare Pa");
             it.print(160, 155, id(font_medium), Color(255, 255, 255), TextAlign::CENTER, "Tryck -> Stoppa");
           } else {
-            it.rectangle(60, 120, 200, 50);  // Bara ram när AV
+            it.rectangle(60, 120, 200, 50);  // Only frame when OFF
             it.print(160, 135, id(font_medium), Color(255, 255, 255), TextAlign::CENTER, "Varmare Av");
             it.print(160, 155, id(font_medium), Color(128, 128, 128), TextAlign::CENTER, "Tryck -> Starta");
           }
           
-          // Status, datum och tid
+          // Status, date and time
           it.line(0, 190, 320, 190, Color(255, 255, 255));
           it.strftime(80, 200, id(font_medium), Color(255, 255, 255), TextAlign::CENTER, "%Y-%m-%d", id(ha_time).now());
           it.strftime(160, 220, id(font_medium), Color(255, 255, 255), TextAlign::CENTER, "%A", id(ha_time).now());
           it.strftime(240, 200, id(font_medium), Color(255, 255, 255), TextAlign::CENTER, "%H:%M", id(ha_time).now());
 
-# Uppdatera displayen varje sekund - visa heartbeat i logg
+# Uppdate every second - show heartbeat in log every 20 s
 interval:
   - interval: 1s
     then:
