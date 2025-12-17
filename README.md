@@ -1,20 +1,20 @@
-# HA Display ESP32-S3
+# HA Display ESP32-S3-Touch-LCD-2
 
-A simple display solution built on **ESP32-S3** that shows various values from **Home Assistant**.  
-The project provides real-time information directly on a small LCD screen and includes physical buttons for interaction.
+This project is based on the **ESP-32-S3-Touch-LCD-2** board from Waveshare.  
+It provides a compact display solution that shows various values from **Home Assistant** on a built-in LCD screen, with physical buttons for interaction.
 
 ## Features
 - 📊 Display sensor data and status from Home Assistant (e.g., temperature, humidity, energy usage).
-- 🖥️ LCD screen with clear layout.
-- 🔘 Physical buttons to control or trigger Home Assistant functions.
+- 🖥️ Integrated LCD screen with clear layout.
+- 🔘 Touch buttons and physical controls to trigger Home Assistant actions.
 - 🔌 Easy integration via **ESPHome**.
 
 ## Purpose
-This project is designed as a complement to Home Assistant – giving a quick overview of important values and enabling simple control without opening the app.
+The goal of this project is to complement Home Assistant by offering a quick, at‑a‑glance overview of important values and enabling simple control without opening the app.
 
 ## Installation
-1. Add the configuration to your ESPHome setup.
-2. Compile and flash it to your ESP32-S3.
+1. Add the provided configuration to your ESPHome setup.
+2. Compile and flash it to the ESP-32-S3-Touch-LCD-2 board.
 3. Connect the device to your Home Assistant system.
 4. Customize which values to display and what the buttons should do.
 
@@ -29,7 +29,4 @@ Here are some example screenshots of the display in action:
 ![Main screen placeholder](images/main_screen.png)  
 *Main screen showing temperature and humidity.*
 
----
-
-✨ The project is under development and can easily be extended with more features and customizations.
-
+✨ The project is under development and doesn't 100% work. I still have problems with touch.
