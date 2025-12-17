@@ -27,4 +27,4 @@ The goal of this project is to complement Home Assistant by offering a quick, at
 Here are some example screenshots of the display in action:
 
 ![Main screen placeholder](images/main_screen.png)  
-*Main screen showing temperature and humidity.*
+*Main screen showing temperature and status.*
