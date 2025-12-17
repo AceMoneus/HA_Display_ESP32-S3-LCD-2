@@ -28,5 +28,3 @@ Here are some example screenshots of the display in action:
 
 ![Main screen placeholder](images/main_screen.png)  
 *Main screen showing temperature and humidity.*
-
-✨ The project is under development and doesn't 100% work. I still have problems with touch.
