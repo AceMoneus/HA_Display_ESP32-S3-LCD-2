@@ -1,16 +1,16 @@
 # HA Display ESP32-S3-Touch-LCD-2
 
-This project is based on the **ESP-32-S3-Touch-LCD-2** board from Waveshare.  
+This project is based on the **ESP-32-S3-Touch-LCD-2** board from **Waveshare**.  
 It provides a compact display solution that shows various values from **Home Assistant** on a built-in LCD screen, with physical buttons for interaction.
 
 ## Features
-- 📊 Display sensor data and status from Home Assistant (e.g., temperature, humidity, energy usage).
+- 📊 Display sensor data and status from Home Assistant.
 - 🖥️ Integrated LCD screen with clear layout.
-- 🔘 Touch buttons and physical controls to trigger Home Assistant actions.
-- 🔌 Easy integration via **ESPHome**.
+- 🔘 Touch buttons and controls to trigger Home Assistant actions.
+- 🔌 Integration via **ESPHome**.
 
 ## Purpose
-The goal of this project is to complement Home Assistant by offering a quick, at‑a‑glance overview of important values and enabling simple control without opening the app.
+The goal of this project is to complement Home Assistant by offering a quick, at‑a‑glance overview of important values and enabling simple control without opening the app. In my case: show inside and outside temperature, a button to turn on/off standard light scene and two buttons enabling heating in our cars before driving.
 
 ## Installation
 1. Add the provided configuration to your ESPHome setup.
