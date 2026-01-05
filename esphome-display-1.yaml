@@ -10,12 +10,6 @@ esphome:
           ESP_LOGI("boot", "I2C SDA: GPIO48, SCL: GPIO47");
           ESP_LOGI("boot", "Touch Interrupt: GPIO46, Reset: GPIO8");
           ESP_LOGI("boot", "Checking I2C bus...");
-
-esp32:
-  board: esp32-s3-devkitc-1
-  framework:
-    type: arduino
-
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
@@ -24,6 +18,11 @@ wifi:
     password: !secret fallback_password
 
 captive_portal:
+
+esp32:
+  board: esp32-s3-devkitc-1
+  framework:
+    type: arduino
 
 logger:
   level: WARN
