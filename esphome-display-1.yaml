@@ -79,8 +79,8 @@ globals:
 # SPI configuration, standard (17/19) did not work
 
 spi:
-  clk_pin: GPIO38
-  mosi_pin: GPIO37
+  clk_pin: GPIO39
+  mosi_pin: GPIO38
 
 # I2C for touch
 i2c:
